@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+body {
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Add to your CSS file */
+.menu-icon .menu-line {
+  transition:
+    transform 0.14s cubic-bezier(0.42, 0, 1, 1),
+    opacity 0.12s cubic-bezier(0.42, 0, 1, 1);
+  transform-origin: 9px 9px;
+}
+
+.menu-icon .menu-line-top,
+.menu-icon .menu-line-bottom {
+  transform: none;
+}
+
+.menu-icon.open .menu-line-top {
+  transform: rotate(45deg) translateY(4px);
+}
+.menu-icon.open .menu-line-bottom {
+  transform: rotate(-45deg) translateY(-4px);
+}
