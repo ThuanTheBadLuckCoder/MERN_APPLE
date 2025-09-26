@@ -1,0 +1,20 @@
+/* Add or update these styles if needed */
+.menu-icon line {
+  transition: all 0.2s;
+}
+.menu-icon.open .menu-line-top {
+  transform: translateY(4px) rotate(45deg);
+}
+.menu-icon.open .menu-line-bottom {
+  transform: translateY(-4px) rotate(-45deg);
+}
+@media (max-width: 1023px) {
+  .desktop-nav {
+    display: none !important;
+  }
+}
+@media (min-width: 1024px) {
+  .mobile-nav {
+    display: none !important;
+  }
+}

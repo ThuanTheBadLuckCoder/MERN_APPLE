@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Apple from '../assets/apple.svg'
 import SearchIcon from '../assets/search.svg'
 import BagIcon from '../assets/bag.svg'
 import NavButton from '../assets/navbutton.svg'
+import NavItem from './NavItem'
 import Search from './Search'
 import Bag from './Bag'
 
@@ -11,22 +12,35 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [bagOpen, setBagOpen] = useState(false)
+  const [isTop, setIsTop] = useState(true) // Add this state
 
   // Set your header heights here (adjust if your header is taller/shorter)
   const mobileHeaderHeight = 56 // px
   const desktopHeaderHeight = 44 // px
 
+  // Add scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsTop(window.scrollY < 5)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <>
-      <header className="bg-stone-800 text-white flex justify-center relative">
-        <nav className="w-full max-w-5xl bg-stone-800 text-xs relative lg:px-[22px] px-[2px]">
+      <header
+        className={`bg-stone-900 text-white flex justify-center relative z-50 transition-opacity duration-300 sticky top-0 ${isTop ? 'opacity-100' : 'opacity-75'}`}
+      >
+        <nav className="w-full max-w-7xl mx-auto text-xs relative px-2 lg:px-6">
           {/* Mobile header */}
-          <div className="flex items-center justify-between lg:hidden" style={{ height: `${mobileHeaderHeight}px` }}>
+          <div className="mobile-nav flex items-center justify-between h-[56px]">
             <Link to="/">
               <img
                 src={Apple}
                 alt="Apple Logo"
-                style={{ width: 48, height: 48, filter: 'invert(1)' }}
+                className="w-8 h-8"
+                style={{ filter: 'invert(1)' }}
               />
             </Link>
             <div className="flex items-center">
@@ -38,10 +52,10 @@ function Header() {
                 <img
                   src={SearchIcon}
                   alt="Search"
-                  style={{ width: 48, height: 48, filter: 'invert(1)' }}
+                  className="w-8 h-8"
+                  style={{ filter: 'invert(1)' }}
                 />
               </button>
-              {/* Mobile Bag icon */}
               <Link to="#" onClick={() => {
                 setBagOpen(!bagOpen)
                 setSearchOpen(false)
@@ -50,11 +64,12 @@ function Header() {
                 <img
                   src={BagIcon}
                   alt="Bag"
-                  style={{ width: 48, height: 48, filter: 'invert(1)' }}
+                  className="w-8 h-8"
+                  style={{ filter: 'invert(1)' }}
                 />
               </Link>
               <button
-                className="text-white focus:outline-none w-[48px] h-[48px]"
+                className="text-white focus:outline-none w-12 h-12"
                 onClick={() => setMenuOpen(!menuOpen)}
                 aria-label="Toggle menu"
               >
@@ -84,57 +99,77 @@ function Header() {
             </div>
           </div>
           {/* Desktop menu */}
-          <ul className="hidden lg:flex justify-between items-center tracking-[-0.01em]" style={{ height: `${desktopHeaderHeight}px` }}>
-            <li className="opacity-80 hover:opacity-100 h-fit">
-              <Link to="/">
-                <img
-                  src={Apple}
-                  alt="Apple Logo"
-                  style={{ width: 30, height: 44, filter: 'invert(1)' }}
-                />
-              </Link>
-            </li>
-            <li className="opacity-80 hover:opacity-100 h-fit"><Link to="/store">Cửa Hàng</Link></li>
-            <li className="opacity-80 hover:opacity-100 h-fit"><Link to="/mac">Mac</Link></li>
-            <li className="opacity-80 hover:opacity-100 h-fit"><Link to="/ipad">iPad</Link></li>
-            <li className="opacity-80 hover:opacity-100 h-fit"><Link to="/iphone">iPhone</Link></li>
-            <li className="opacity-80 hover:opacity-100 h-fit"><Link to="/watch">Watch</Link></li>
-            <li className="opacity-80 hover:opacity-100 h-fit"><Link to="/airpods">AirPods</Link></li>
-            <li className="opacity-80 hover:opacity-100 h-fit"><Link to="/tvhome">TV & Nhà</Link></li>
-            <li className="opacity-80 hover:opacity-100 h-fit"><Link to="/services">Giải Trí</Link></li>
-            <li className="opacity-80 hover:opacity-100 h-fit"><Link to="/accessories">Phụ Kiện</Link></li>
-            <li className="opacity-80 hover:opacity-100 h-fit"><Link to="/support">Hỗ Trợ</Link></li>
-            <li className="opacity-80 hover:opacity-100 h-fit">
-              <button
-                onClick={() => setSearchOpen(!searchOpen)}
-                aria-label="Open search"
-                className="focus:outline-none"
-              >
-                <img
-                  src={SearchIcon}
-                  alt="Search"
-                  style={{ width: 30, height: 44, filter: 'invert(1)' }}
-                />
-              </button>
-            </li>
-            {/* Desktop Bag icon */}
-            <li className="opacity-80 hover:opacity-100 h-fit">
-              <button
-                onClick={() => {
-                  setBagOpen(!bagOpen)
-                  setSearchOpen(false)
-                  setMenuOpen(false)
-                }}
-                aria-label="Open bag"
-                className="focus:outline-none"
-              >
-                <img
-                  src={BagIcon}
-                  alt="Bag"
-                  style={{ width: 30, height: 44, filter: 'invert(1)' }}
-                />
-              </button>
-            </li>
+          <ul className="desktop-nav hidden lg:flex justify-between items-center w-full px-2" style={{ minHeight: '44px' }}>
+            <NavItem to="/" icon={Apple} label="" />
+            <NavItem to="/store" label="Cửa Hàng" />
+            <NavItem to="/mac" label="Mac">
+              <div className="bg-stone-900 text-white px-12 py-8 shadow-xl rounded-b-lg mt-2 flex gap-16 min-w-[700px] max-w-4xl">
+                {/* Column 1 */}
+                <div>
+                  <div className="text-gray-400 text-sm mb-2">Khám Phá Mac</div>
+                  <a href="/mac" className="block font-bold text-2xl mb-2 hover:underline">Khám Phá Tất Cả Mac</a>
+                  <a href="/macbook-air" className="block font-bold text-2xl mb-2 hover:underline">MacBook Air</a>
+                  <a href="/macbook-pro" className="block font-bold text-2xl mb-2 hover:underline">MacBook Pro</a>
+                  <a href="/imac" className="block font-bold text-2xl mb-2 hover:underline">iMac</a>
+                  <a href="/mac-mini" className="block font-bold text-2xl mb-2 hover:underline">Mac mini</a>
+                  <a href="/mac-studio" className="block font-bold text-2xl mb-2 hover:underline">Mac Studio</a>
+                  <a href="/mac-pro" className="block font-bold text-2xl mb-2 hover:underline">Mac Pro</a>
+                  <a href="/man-hinh" className="block font-bold text-2xl mb-2 hover:underline">Màn Hình</a>
+                  <a href="/so-sanh-mac" className="block font-semibold text-base mt-4 hover:underline">So Sánh Mac</a>
+                  <a href="/chuyen-tu-pc" className="block font-semibold text-base hover:underline">Chuyển Từ PC Sang Mac</a>
+                </div>
+                {/* Column 2 */}
+                <div>
+                  <div className="text-gray-400 text-sm mb-2">Mua Mac</div>
+                  <a href="/mua-mac" className="block font-semibold hover:underline">Mua Mac</a>
+                  <a href="/phu-kien-mac" className="block font-semibold hover:underline">Phụ Kiện Mac</a>
+                  <a href="/apple-trade-in" className="block font-semibold hover:underline">Apple Trade In</a>
+                  <a href="/tai-chinh" className="block font-semibold hover:underline">Tài Chính</a>
+                  <a href="/uu-dai-sinh-vien" className="block font-semibold hover:underline">Ưu Đãi Dành Cho Sinh Viên Đại Học</a>
+                </div>
+                {/* Column 3 */}
+                <div>
+                  <div className="text-gray-400 text-sm mb-2">Tìm Hiểu Thêm Về Mac</div>
+                  <a href="/ho-tro-mac" className="block font-semibold hover:underline">Hỗ Trợ Mac</a>
+                  <a href="/applecare" className="block font-semibold hover:underline">AppleCare</a>
+                  <a href="/macos-tahoe" className="block font-semibold hover:underline">macOS Tahoe</a>
+                  <a href="/apple-intelligence" className="block font-semibold hover:underline">Apple Intelligence</a>
+                  <a href="/ung-dung-apple" className="block font-semibold hover:underline">Các Ứng Dụng Của Apple</a>
+                  <a href="/tinh-lien-tuc" className="block font-semibold hover:underline">Tính Liên Tục</a>
+                  <a href="/icloud" className="block font-semibold hover:underline">iCloud+</a>
+                  <a href="/mac-doanh-nghiep" className="block font-semibold hover:underline">Mac Cho Doanh Nghiệp</a>
+                  <a href="/giao-duc" className="block font-semibold hover:underline">Giáo Dục</a>
+                </div>
+              </div>
+            </NavItem>
+            <NavItem to="/ipad" label="iPad">
+              <div className="bg-white text-black p-4 shadow-lg rounded mt-2 min-w-[180px]">
+                <a href="/ipad/pro" className="block py-1 px-2 hover:bg-gray-100 rounded">iPad Pro</a>
+                <a href="/ipad/air" className="block py-1 px-2 hover:bg-gray-100 rounded">iPad Air</a>
+              </div>
+            </NavItem>
+            <NavItem to="/iphone" label="iPhone">
+              <div className="bg-white text-black p-4 shadow-lg rounded mt-2 min-w-[180px]">
+                <a href="/iphone/15" className="block py-1 px-2 hover:bg-gray-100 rounded">iPhone 15</a>
+                <a href="/iphone/14" className="block py-1 px-2 hover:bg-gray-100 rounded">iPhone 14</a>
+              </div>
+            </NavItem>
+            <NavItem to="/watch" label="Watch" />
+            <NavItem to="/airpods" label="AirPods" />
+            <NavItem to="/tvhome" label="TV & Nhà" />
+            <NavItem to="/services" label="Giải Trí" />
+            <NavItem to="/accessories" label="Phụ Kiện" />
+            <NavItem to="/support" label="Hỗ Trợ" />
+            <NavItem icon={SearchIcon} label="" trigger="click">
+              <div className="bg-stone-900 w-80 p-4 rounded mt-2">
+                <Search />
+              </div>
+            </NavItem>
+            <NavItem icon={BagIcon} label="" trigger="click">
+              <div className="bg-stone-900 w-80 p-4 rounded mt-2">
+                <Bag />
+              </div>
+            </NavItem>
           </ul>
           {/* Mobile menu overlay */}
           {menuOpen && (
