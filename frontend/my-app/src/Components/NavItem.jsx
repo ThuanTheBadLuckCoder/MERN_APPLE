@@ -6,14 +6,15 @@ function NavItem({
   label, 
   children, 
   trigger = 'hover', // 'hover' or 'click'
+  className = '',
   ...props 
 }) {
-  const [open, setOpen] = useState(false); //false
+  const [open, setOpen] = useState(false);
 
   // For hover menus
   const hoverProps = trigger === 'hover' ? {
-    onMouseEnter: () => setOpen(true), //true
-    onMouseLeave: () => setOpen(false), //false
+    onMouseEnter: () => setOpen(true),
+    onMouseLeave: () => setOpen(false),
   } : {}
 
   // For click menus
@@ -23,22 +24,22 @@ function NavItem({
 
   return (
     <li 
-      className="static"
+      className="relative hover:text-gray-100"
       {...hoverProps}
     >
       {to ? (
-        <a href={to} {...clickProps} {...props}>
+        <a href={to} className={className} {...clickProps} {...props}>
           {icon && <img src={icon} alt={label} />}
           {label}
         </a>
       ) : (
-        <button type="button" {...clickProps} {...props}>
+        <button type="button" className={className} {...clickProps} {...props}>
           {icon && <img src={icon} alt={label} />}
           {label}
         </button>
       )}
       {open && children && (
-        <div className="absolute w-full left-0">
+        <div className="fixed left-0 w-screen z-50" style={{ top: '44px' }}>
           {children}
         </div>
       )}
