@@ -3,10 +3,7 @@ import { Link } from 'react-router-dom'
 import Apple from '../assets/apple.svg'
 import SearchIcon from '../assets/search.svg'
 import BagIcon from '../assets/bag.svg'
-import NavButton from '../assets/navbutton.svg'
 import NavItem from './NavItem'
-import Search from './Search'
-import Bag from './Bag'
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -30,9 +27,9 @@ function Header() {
   return (
     <>
       <header
-        className={`bg-stone-900 text-white flex justify-center relative z-50 transition-opacity duration-300 sticky top-0 ${isTop ? 'opacity-100' : 'opacity-75'}`}
+        className={`bg-stone-900 text-white flex justify-center relative z-50 transition-opacity duration-300 sticky top-0 ${isTop ? 'opacity-100' : 'opacity-100'}`}
       >
-        <nav className="w-full max-w-7xl mx-auto text-xs relative px-2 lg:px-6">
+        <nav className="w-full mx-auto text-xs relative flex flex-col items-center px-120 mx-auto">
           {/* Mobile header */}
           <div className="mobile-nav flex items-center justify-between h-[56px]">
             <Link to="/">
@@ -100,10 +97,10 @@ function Header() {
           </div>
           {/* Desktop menu */}
           <ul className="desktop-nav hidden lg:flex justify-between items-center w-full px-2" style={{ minHeight: '44px' }}>
-            <NavItem to="/" icon={Apple} label="" />
+            <NavItem to="/" icon={Apple} label="" className="invert-[1]"/>
             <NavItem to="/store" label="Cửa Hàng" />
             <NavItem to="/mac" label="Mac">
-              <div className="bg-stone-900 text-white px-12 py-8 shadow-xl rounded-b-lg mt-2 flex gap-16 min-w-[700px] max-w-4xl">
+              <div className="bg-stone-900 text-white px-120 py-8 shadow-xl rounded-b-lg mt-2 flex flex-row justify-between w-full">
                 {/* Column 1 */}
                 <div>
                   <div className="text-gray-400 text-sm mb-2">Khám Phá Mac</div>
@@ -160,16 +157,8 @@ function Header() {
             <NavItem to="/services" label="Giải Trí" />
             <NavItem to="/accessories" label="Phụ Kiện" />
             <NavItem to="/support" label="Hỗ Trợ" />
-            <NavItem icon={SearchIcon} label="" trigger="click">
-              <div className="bg-stone-900 w-80 p-4 rounded mt-2">
-                <Search />
-              </div>
-            </NavItem>
-            <NavItem icon={BagIcon} label="" trigger="click">
-              <div className="bg-stone-900 w-80 p-4 rounded mt-2">
-                <Bag />
-              </div>
-            </NavItem>
+            <NavItem to="/" icon={SearchIcon} label="" className="invert-[1]"/>
+            <NavItem to="/" icon={BagIcon} label="" className="invert-[1]"/>
           </ul>
           {/* Mobile menu overlay */}
           {menuOpen && (
@@ -188,43 +177,6 @@ function Header() {
           )}
         </nav>
       </header>
-      {/* Search dropdown (full width, right below header, no gap) */}
-      {searchOpen && (
-        <>
-          {/* Mobile */}
-          <div
-            className="fixed left-0 right-0 z-50 bg-stone-900 animate-fade-in lg:hidden w-full"
-            style={{ top: `${mobileHeaderHeight}px` }}
-          >
-            <Search />
-          </div>
-          {/* Desktop */}
-          <div
-            className="hidden lg:block fixed left-0 right-0 z-50 bg-stone-900 animate-fade-in w-full"
-            style={{ top: `${desktopHeaderHeight}px` }}
-          >
-            <Search />
-          </div>
-        </>
-      )}
-      {bagOpen && (
-        <>
-          {/* Mobile */}
-          <div
-            className="fixed left-0 right-0 z-50 bg-stone-900 animate-fade-in lg:hidden w-full"
-            style={{ top: `${mobileHeaderHeight}px` }}
-          >
-            <Bag />
-          </div>
-          {/* Desktop */}
-          <div
-            className="hidden lg:block fixed left-0 right-0 z-50 bg-stone-900 animate-fade-in w-full"
-            style={{ top: `${desktopHeaderHeight}px` }}
-          >
-            <Bag />
-          </div>
-        </>
-      )}
     </>
   )
 }

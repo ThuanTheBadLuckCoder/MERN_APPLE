@@ -8,12 +8,12 @@ function NavItem({
   trigger = 'hover', // 'hover' or 'click'
   ...props 
 }) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false); //false
 
   // For hover menus
   const hoverProps = trigger === 'hover' ? {
-    onMouseEnter: () => setOpen(true),
-    onMouseLeave: () => setOpen(false),
+    onMouseEnter: () => setOpen(true), //true
+    onMouseLeave: () => setOpen(false), //false
   } : {}
 
   // For click menus
@@ -23,7 +23,7 @@ function NavItem({
 
   return (
     <li 
-      className="relative"
+      className="static"
       {...hoverProps}
     >
       {to ? (
@@ -38,7 +38,7 @@ function NavItem({
         </button>
       )}
       {open && children && (
-        <div className="absolute left-0 top-full z-50">
+        <div className="absolute w-full left-0">
           {children}
         </div>
       )}
