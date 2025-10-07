@@ -41,7 +41,7 @@ const Home = () => {
         </section>
 
         {/* SOLUTION 3: Using an actual img element for more control */}
-        <section className="flex flex-col bg-gray-50 items-center justify-start pt-12 pb-0 relative overflow-hidden">
+        <section className="flex flex-col items-center justify-start pt-12 pb-0 relative overflow-hidden">
           {/* Background image as img element */}
           <img
             src="https://www.apple.com/v/iphone-air/b/images/overview/welcome/hero__pkj0eg4w6ki2_xlarge.jpg"
