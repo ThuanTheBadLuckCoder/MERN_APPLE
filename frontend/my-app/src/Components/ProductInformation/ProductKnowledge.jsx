@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import leftArrw from '../../assets/leftArrow.svg';
 import rightArrw from '../../assets/rightArrow.svg';
-import ProductCategoriesContext from './ProductCategoriesContext.js';
+import { ProductCategoriesContext } from './ProductCategoriesContext.js';
 import './styles/ProductIntro.css';
 
 const CARD_WIDTH = 405;
@@ -10,7 +10,7 @@ const CARD_MARGIN = 20;
 const ProductKnowledge = (props) => {
     const productCategories = useContext(ProductCategoriesContext);
 
-    console.log("Props: ", props);
+    
     const cards = Object.values(props.kienThucTongHop || {}).map(card => ({
         title: card?.title || '',
         subTitle: card?.subTitle || '',

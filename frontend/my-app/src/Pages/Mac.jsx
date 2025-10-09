@@ -1,7 +1,6 @@
 import React from 'react'
-import ProductKnowledge from '../Components/ProductInformation/ProductKnowledge'
-import ProductIntroduction from '../Components/ProductInformation/ProductIntroduction';
-import ProductCategoriesContext from '../Components/ProductInformation/ProductCategoriesContext';
+import ProductPageLayout from '../Components/ProductInformation/ProductLayoutTypeA';
+import { ProductCategoriesContext } from '../Components/ProductInformation/ProductCategoriesContext';
 
 const productCategories = "Mac";
 
@@ -250,18 +249,206 @@ const Mac = () => {
         }
       },
     }
-
-
   };
+
+  const macBookAirList = [
+    {
+      categoriesName: "Mac",
+      productType: "Máy Tính Xách Tay",
+      name: "MacBook",
+      macType: "Air",
+      color: "Sky Blue",
+      chip: "M4",
+      CPU: "10-Core CPU",
+      GPU: "8-Core GPU",
+      RAM: "16GB Unified Memory",
+      SSD: "256GB SSD Storage",
+      screenSize: "13",
+      price: 26508000,
+      generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+    },
+    {
+      categoriesName: "Mac",
+      productType: "Máy Tính Xách Tay",
+      name: "MacBook",
+      macType: "Air",
+      color: "Silver",
+      chip: "M4",
+      CPU: "10-Core CPU",
+      GPU: "10-Core GPU",
+      RAM: "16GB Unified Memory",
+      SSD: "512GB SSD Storage",
+      screenSize: "15",
+      price: 28508000,
+      generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+    },
+    // Add more Air models...
+  ];
+
+  const macBookProList = [
+    {
+      categoriesName: "Mac",
+      productType: "Máy Tính Xách Tay",
+      name: "MacBook",
+      macType: "Pro",
+      color: "Space Black",
+      chip: "M4",
+      CPU: "10-Core CPU",
+      GPU: "10-Core GPU",
+      RAM: "16GB Unified Memory",
+      SSD: "512GB SSD Storage",
+      screenSize: "14",
+      price: 39271000,
+      generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+    },
+    {
+      categoriesName: "Mac",
+      productType: "Máy Tính Xách Tay",
+      name: "MacBook",
+      macType: "Pro",
+      color: "Space Black",
+      chip: "M4 Pro",
+      CPU: "12-Core CPU",
+      GPU: "16-Core GPU",
+      RAM: "24GB Unified Memory",
+      SSD: "512GB SSD Storage",
+      screenSize: "16",
+      price: 45271000,
+      generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+    },
+    // Add more Pro models...
+  ];
+
+  const iMac = [
+    {
+      categoriesName: "Mac",
+      productType: "Máy Tính Để Bàn",
+      name: "iMac",
+      color: "Sky Blue",
+      chip: "M4",
+      CPU: "10-Core CPU",
+      GPU: "8-Core GPU",
+      RAM: "16GB Unified Memory",
+      SSD: "256GB SSD Storage",
+      screenSize: "13",
+      price: 26508000,
+      generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+    },
+    {
+      categoriesName: "Mac",
+      productType: "Máy Tính Để Bàn",
+      name: "iMac",
+      color: "Silver",
+      chip: "M4",
+      CPU: "10-Core CPU",
+      GPU: "10-Core GPU",
+      RAM: "16GB Unified Memory",
+      SSD: "512GB SSD Storage",
+      screenSize: "15",
+      price: 28508000,
+      generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+    },
+    // Add more Air models...
+  ];
+
+  const MacPro = [
+    {
+      categoriesName: "Mac",
+      productType: "Máy Tính Để Bàn",
+      name: "Mac Pro",
+      color: "Space Black",
+      chip: "M4",
+      CPU: "10-Core CPU",
+      GPU: "10-Core GPU",
+      RAM: "16GB Unified Memory",
+      SSD: "512GB SSD Storage",
+      screenSize: "14",
+      price: 39271000,
+      generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+    },
+    {
+      categoriesName: "Mac",
+      productType: "Máy Tính Để Bàn",
+      name: "Mac Pro",
+      color: "Space Black",
+      chip: "M4 Pro",
+      CPU: "12-Core CPU",
+      GPU: "16-Core GPU",
+      RAM: "24GB Unified Memory",
+      SSD: "512GB SSD Storage",
+      screenSize: "16",
+      price: 45271000,
+      generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+    },
+    // Add more Pro models...
+  ];
+
+  const ManHinh = [
+    {
+      categoriesName: "Mac",
+      productType: "Màn Hình",
+      name: "ManHinh",
+      color: "Space Black",
+      chip: "M4",
+      CPU: "10-Core CPU",
+      GPU: "10-Core GPU",
+      RAM: "16GB Unified Memory",
+      SSD: "512GB SSD Storage",
+      screenSize: "14",
+      price: 39271000,
+      generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+    },
+    {
+      categoriesName: "Mac",
+      productType: "Màn Hình",
+      name: "ManHinh",
+      color: "Space Black",
+      chip: "M4 Pro",
+      CPU: "12-Core CPU",
+      GPU: "16-Core GPU",
+      RAM: "24GB Unified Memory",
+      SSD: "512GB SSD Storage",
+      screenSize: "16",
+      price: 45271000,
+      generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+    },
+    // Add more Pro models...
+  ];
+
+  const sectionObj3 = {
+    macBookAirList,
+    macBookProList,
+    iMac,
+    MacPro,
+    ManHinh
+  };
+
   return (
     <ProductCategoriesContext.Provider value={productCategories}>
-      <div id="Mac" className='flex w-full justify-center flex-col items-center pt-20'>
-        <ProductIntroduction {...sectionObj1} />
-        <ProductKnowledge {...sectionObj2} />
-      </div>
-
+      <ProductPageLayout
+        introduction={sectionObj1}
+        knowledge={sectionObj2}
+        explore={{
+          macBookAirList,
+          macBookProList,
+          iMac,
+          MacPro,
+          ManHinh
+        }}
+      />
+      
     </ProductCategoriesContext.Provider>
-  )
+  );
 }
 
 export default Mac

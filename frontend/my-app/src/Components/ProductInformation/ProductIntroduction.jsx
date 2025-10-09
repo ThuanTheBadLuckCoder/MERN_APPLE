@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useEffect, useState } from 'react';
-import ProductCategoriesContext from './ProductCategoriesContext.js';
+import { ProductCategoriesContext } from './ProductCategoriesContext.js';
 import './styles/ProductIntro.css';
 
 // Floating Play/Pause Icon
