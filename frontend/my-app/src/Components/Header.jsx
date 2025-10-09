@@ -85,6 +85,7 @@ function Header() {
                 />
               </Link>
               <button
+              style={{ zIndex: 1000}}
                 className="text-white focus:outline-none w-12 h-12"
                 onClick={() => setMenuOpen(!menuOpen)}
                 aria-label="Toggle menu"

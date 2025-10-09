@@ -5,8 +5,6 @@ const ProductGrid = ({ products }) => {
         return <div>Không có sản phẩm nào.</div>;
     }
 
-    console.log("Rendering ProductGrid with products:", products);
-
     // ✅ Gom nhóm sản phẩm theo name + macType
     const groupedProducts = Object.values(
         products.reduce((acc, product) => {
