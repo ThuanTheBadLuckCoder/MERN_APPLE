@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductPageLayout from '../Components/ProductInformation/ProductLayoutTypeA';
+import ProductPageLayoutTypeA from '../Components/ProductInformation/ProductLayoutTypeA';
 import { ProductCategoriesContext } from '../Components/ProductInformation/ProductCategoriesContext';
 
 const productCategories = "Mac";
@@ -263,10 +263,13 @@ const Mac = () => {
       GPU: "8-Core GPU",
       RAM: "16GB Unified Memory",
       SSD: "256GB SSD Storage",
-      screenSize: "13",
+      screenSize: 13.6,
+      screenInfo: "Màn hình Liquid Retina với độ sáng 500 nit và hỗ trợ 1 tỷ màu",
       price: 26508000,
       generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
-      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
+      chipImgSrc: "https://www.apple.com/assets-www/en_WW/mac/tout_table/chip.m4.fill_elevated_0b86b1a9b.svg",
+      batteryLife: "18 giờ",
     },
     {
       categoriesName: "Mac",
@@ -279,10 +282,13 @@ const Mac = () => {
       GPU: "10-Core GPU",
       RAM: "16GB Unified Memory",
       SSD: "512GB SSD Storage",
-      screenSize: "15",
+      screenSize: 15.3,
+      screenInfo: "Màn hình Liquid Retina với độ sáng 500 nit và hỗ trợ 1 tỷ màu",
       price: 28508000,
       generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
-      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
+      chipImgSrc: "https://www.apple.com/assets-www/en_WW/mac/tout_table/chip.m4.fill_elevated_0b86b1a9b.svg",
+      batteryLife: "18 giờ",
     },
     // Add more Air models...
   ];
@@ -299,10 +305,13 @@ const Mac = () => {
       GPU: "10-Core GPU",
       RAM: "16GB Unified Memory",
       SSD: "512GB SSD Storage",
-      screenSize: "14",
+      screenSize: 14.2,
+      screenInfo: "Màn hình Liquid Retina XDR với độ sáng đỉnh lên đến 1600 nit, tỷ lệ tương phản 1.000.000:1 và tốc độ làm mới lên đến 120Hz",
       price: 39271000,
       generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
-      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
+      chipImgSrc: "https://www.apple.com/assets-www/en_WW/mac/tout_table/chip.m4.and.chip.m4pro.and.chip.m4max.fill_elevated_babed04f2.svg",
+      batteryLife: "24 giờ",
     },
     {
       categoriesName: "Mac",
@@ -315,10 +324,32 @@ const Mac = () => {
       GPU: "16-Core GPU",
       RAM: "24GB Unified Memory",
       SSD: "512GB SSD Storage",
-      screenSize: "16",
+      screenSize: 16.2,
+      screenInfo: "Màn hình Liquid Retina XDR với độ sáng đỉnh lên đến 1600 nit, tỷ lệ tương phản 1.000.000:1 và tốc độ làm mới lên đến 120Hz",
       price: 45271000,
       generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
-      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
+      chipImgSrc: "https://www.apple.com/assets-www/en_WW/mac/tout_table/chip.m4.and.chip.m4pro.and.chip.m4max.fill_elevated_babed04f2.svg",
+      batteryLife: "24 giờ",
+    },
+    {
+      categoriesName: "Mac",
+      productType: "Máy Tính Xách Tay",
+      name: "MacBook",
+      macType: "Pro",
+      color: "Space Black",
+      chip: "M4 Max",
+      CPU: "12-Core CPU",
+      GPU: "16-Core GPU",
+      RAM: "24GB Unified Memory",
+      SSD: "512GB SSD Storage",
+      screenSize: 16.2,
+      screenInfo: "Màn hình Liquid Retina XDR với độ sáng đỉnh lên đến 1600 nit, tỷ lệ tương phản 1.000.000:1 và tốc độ làm mới lên đến 120Hz.",
+      price: 45271000,
+      generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
+      chipImgSrc: "https://www.apple.com/assets-www/en_WW/mac/tout_table/chip.m4.and.chip.m4pro.and.chip.m4max.fill_elevated_babed04f2.svg",
+      batteryLife: "24 giờ",
     },
     // Add more Pro models...
   ];
@@ -435,7 +466,7 @@ const Mac = () => {
 
   return (
     <ProductCategoriesContext.Provider value={productCategories}>
-      <ProductPageLayout
+      <ProductPageLayoutTypeA
         introduction={sectionObj1}
         knowledge={sectionObj2}
         explore={{

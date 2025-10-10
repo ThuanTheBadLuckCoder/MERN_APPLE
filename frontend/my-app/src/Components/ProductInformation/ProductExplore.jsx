@@ -36,7 +36,7 @@ const ProductExplore = ({
 
     const [activeTab, setActiveTab] = useState(groupedProducts[0]?.type || '');
     const activeGroup = groupedProducts.find(g => g.type === activeTab);
-
+    
     return (
         <div id="product-explore" className="w-full flex flex-col items-center justify-center py-10 px-5 bg-[#f5f5f7]">
             <div className="w-full max-w-[1680px]">
