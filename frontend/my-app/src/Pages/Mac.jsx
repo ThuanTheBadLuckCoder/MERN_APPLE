@@ -270,6 +270,13 @@ const Mac = () => {
       imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
       chipImgSrc: "https://www.apple.com/assets-www/en_WW/mac/tout_table/chip.m4.fill_elevated_0b86b1a9b.svg",
       batteryLife: "18 giờ",
+      connectionPort: {
+        thunderbolt4: 2,
+        audioJack: 1,
+        magSafe: 1
+      },
+      weight: 1.24,
+      appleIntelligence: true
     },
     {
       categoriesName: "Mac",
@@ -289,6 +296,13 @@ const Mac = () => {
       imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
       chipImgSrc: "https://www.apple.com/assets-www/en_WW/mac/tout_table/chip.m4.fill_elevated_0b86b1a9b.svg",
       batteryLife: "18 giờ",
+      connectionPort: {
+        thunderbolt4: 2,
+        audioJack: 1,
+        magSafe: 1
+      },
+      weight: 1.51,
+      appleIntelligence: true
     },
     // Add more Air models...
   ];
@@ -312,6 +326,14 @@ const Mac = () => {
       imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
       chipImgSrc: "https://www.apple.com/assets-www/en_WW/mac/tout_table/chip.m4.and.chip.m4pro.and.chip.m4max.fill_elevated_babed04f2.svg",
       batteryLife: "24 giờ",
+      connectionPort: {
+        thunderbolt4: 3,
+        audioJack: 1,
+        magSafe: 1,
+        hdmi: 1,
+      },
+      weight: 1.55,
+      appleIntelligence: true
     },
     {
       categoriesName: "Mac",
@@ -331,6 +353,14 @@ const Mac = () => {
       imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
       chipImgSrc: "https://www.apple.com/assets-www/en_WW/mac/tout_table/chip.m4.and.chip.m4pro.and.chip.m4max.fill_elevated_babed04f2.svg",
       batteryLife: "24 giờ",
+      connectionPort: {
+        thunderbolt5: 3,
+        audioJack: 1,
+        magSafe: 1,
+        hdmi: 1,
+      },
+      weight: 2.15,
+      appleIntelligence: true
     },
     {
       categoriesName: "Mac",
@@ -350,6 +380,14 @@ const Mac = () => {
       imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
       chipImgSrc: "https://www.apple.com/assets-www/en_WW/mac/tout_table/chip.m4.and.chip.m4pro.and.chip.m4max.fill_elevated_babed04f2.svg",
       batteryLife: "24 giờ",
+      connectionPort: {
+        thunderbolt5: 3,
+        audioJack: 1,
+        magSafe: 1,
+        hdmi: 1,
+      },
+      weight: 2.15,
+      appleIntelligence: true
     },
     // Add more Pro models...
   ];
@@ -365,10 +403,18 @@ const Mac = () => {
       GPU: "8-Core GPU",
       RAM: "16GB Unified Memory",
       SSD: "256GB SSD Storage",
-      screenSize: "13",
+      screenSize: 24,
       price: 26508000,
       generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
-      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
+      chipImgSrc: "https://www.apple.com/assets-www/en_WW/mac/tout_table/chip.m4.fill_elevated_0b86b1a9b.svg",
+      ramInfo: "16GB Unified Memory",
+      storageInfo: "256GB SSD Storage",
+      connectionPort: {
+        thunderbolt4: 2,
+        usbC: 2,
+        audioJack: 1
+      }
     },
     {
       categoriesName: "Mac",
@@ -380,10 +426,18 @@ const Mac = () => {
       GPU: "10-Core GPU",
       RAM: "16GB Unified Memory",
       SSD: "512GB SSD Storage",
-      screenSize: "15",
+      screenSize: 24,
       price: 28508000,
       generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
-      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
+      chipImgSrc: "https://www.apple.com/assets-www/en_WW/mac/tout_table/chip.m4.fill_elevated_0b86b1a9b.svg",
+      ramInfo: "16GB Unified Memory",
+      storageInfo: "512GB SSD Storage",
+      connectionPort: {
+        thunderbolt4: 2,
+        usbC: 2,
+        audioJack: 1
+      }
     },
     // Add more Air models...
   ];
@@ -399,10 +453,19 @@ const Mac = () => {
       GPU: "10-Core GPU",
       RAM: "16GB Unified Memory",
       SSD: "512GB SSD Storage",
-      screenSize: "14",
       price: 39271000,
-      generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
-      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+      generalInfo: "Máy tính để bàn chuyên nghiệp với hiệu năng cực mạnh cho các tác vụ nặng.",
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
+      chipImgSrc: "https://www.apple.com/assets-www/en_WW/mac/tout_table/chip.m4.fill_elevated_0b86b1a9b.svg",
+      ramInfo: "16GB Unified Memory",
+      storageInfo: "512GB SSD Storage",
+      connectionPort: {
+        thunderbolt4: 4,
+        usbC: 4,
+        audioJack: 1,
+        ethernet: 2,
+        hdmi: 1
+      }
     },
     {
       categoriesName: "Mac",
@@ -414,10 +477,19 @@ const Mac = () => {
       GPU: "16-Core GPU",
       RAM: "24GB Unified Memory",
       SSD: "512GB SSD Storage",
-      screenSize: "16",
       price: 45271000,
-      generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
-      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+      generalInfo: "Máy tính để bàn chuyên nghiệp với hiệu năng cực mạnh cho các tác vụ nặng.",
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
+      chipImgSrc: "https://www.apple.com/assets-www/en_WW/mac/tout_table/chip.m4.and.chip.m4pro.and.chip.m4max.fill_elevated_babed04f2.svg",
+      ramInfo: "24GB Unified Memory",
+      storageInfo: "512GB SSD Storage",
+      connectionPort: {
+        thunderbolt4: 6,
+        usbC: 4,
+        audioJack: 1,
+        ethernet: 2,
+        hdmi: 1
+      }
     },
     // Add more Pro models...
   ];
@@ -426,32 +498,36 @@ const Mac = () => {
     {
       categoriesName: "Mac",
       productType: "Màn Hình",
-      name: "ManHinh",
+      name: "Studio Display",
       color: "Space Black",
-      chip: "M4",
-      CPU: "10-Core CPU",
-      GPU: "10-Core GPU",
-      RAM: "16GB Unified Memory",
-      SSD: "512GB SSD Storage",
-      screenSize: "14",
+      screenSize: 27,
+      resolution: "5K (5120 x 2880)",
+      refreshRate: "60Hz",
+      panelType: "IPS LCD",
       price: 39271000,
-      generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
-      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+      generalInfo: "Màn hình 27 inch với độ phân giải 5K tuyệt đẹp và âm thanh vòm.",
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
+      connectionPort: {
+        thunderbolt3: 3,
+        usbC: 1
+      }
     },
     {
       categoriesName: "Mac",
       productType: "Màn Hình",
-      name: "ManHinh",
+      name: "Pro Display XDR",
       color: "Space Black",
-      chip: "M4 Pro",
-      CPU: "12-Core CPU",
-      GPU: "16-Core GPU",
-      RAM: "24GB Unified Memory",
-      SSD: "512GB SSD Storage",
-      screenSize: "16",
+      screenSize: 32,
+      resolution: "6K (6016 x 3384)",
+      refreshRate: "60Hz",
+      panelType: "IPS LCD",
       price: 45271000,
-      generalInfo: "Siêu mỏng, siêu nhanh để làm việc, giải trí và sáng tạo bất cứ đâu.",
-      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png"
+      generalInfo: "Màn hình chuyên nghiệp 32 inch với công nghệ XDR tiên tiến.",
+      imgSrc: "https://www.apple.com/assets-www/en_WW/mac/product_tile/xlarge/mba_13_15_2fb165671.png",
+      connectionPort: {
+        thunderbolt3: 1,
+        usbC: 3
+      }
     },
     // Add more Pro models...
   ];
