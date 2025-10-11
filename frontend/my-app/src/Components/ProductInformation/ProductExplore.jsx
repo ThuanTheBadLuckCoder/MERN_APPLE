@@ -66,7 +66,7 @@ const ProductExplore = ({
     }, [activeGroup]);
     
     return (
-        <div id="product-explore" className="w-full flex flex-col items-center justify-center py-10 px-5 bg-[#f5f5f7]">
+        <div id="product-explore" className="w-full flex flex-col items-center justify-center bg-[#f5f5f7]">
             <div className="w-full max-w-[1680px]">
                 {/* Header */}
                 <div
@@ -111,44 +111,6 @@ const ProductExplore = ({
                         color: "white"
                     }}
                 />
-
-                {/* Category Port Summary */}
-                {categoryPortSummary && (
-                    <div style={{ 
-                        marginTop: '20px',
-                        padding: '15px',
-                        backgroundColor: '#ffffff',
-                        borderRadius: '8px',
-                        border: '1px solid #e5e5e7'
-                    }}>
-                        <h3 style={{ 
-                            fontSize: '18px', 
-                            fontWeight: '600', 
-                            margin: '0 0 10px 0',
-                            textAlign: 'center',
-                            color: '#1d1d1f'
-                        }}>
-                            Tổng quan cổng kết nối - {activeTab}
-                        </h3>
-                        <PortSummary 
-                            totalPorts={categoryPortSummary.totalPorts}
-                            connectionPorts={categoryPortSummary.connectionPorts}
-                            showDetails={true}
-                            style={{
-                                backgroundColor: 'transparent',
-                                padding: '0'
-                            }}
-                        />
-                        <p style={{ 
-                            fontSize: '12px', 
-                            color: '#6e6e73', 
-                            textAlign: 'center',
-                            margin: '8px 0 0 0'
-                        }}>
-                            Dựa trên {categoryPortSummary.productCount} sản phẩm trong danh mục
-                        </p>
-                    </div>
-                )}
 
                 {/* Nội dung tab (tuỳ biến theo từng trang) */}
                 <div style={{ marginTop: '20px' }}>

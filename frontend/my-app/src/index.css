@@ -8,6 +8,19 @@
 .menu-icon.open .menu-line-bottom {
   transform: translateY(-4px) rotate(-45deg);
 }
+
+/* Sticky header animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 @media (max-width: 1023px) {
   .desktop-nav {
     display: none !important;

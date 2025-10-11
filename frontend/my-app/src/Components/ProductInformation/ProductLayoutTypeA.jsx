@@ -10,6 +10,7 @@ const ProductPageLayoutTypeA = ({ introduction, knowledge, explore }) => {
       <ProductIntroduction {...introduction} />
       <ProductKnowledge {...knowledge} />
       <ProductExplore categoriesProducts={explore} />
+      <div style={{ height: "10000px" }}></div>
     </div>
   );
 };

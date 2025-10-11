@@ -552,7 +552,7 @@ const Mac = () => {
           MacPro,
           ManHinh
         }}
-      />
+        />
       
     </ProductCategoriesContext.Provider>
   );

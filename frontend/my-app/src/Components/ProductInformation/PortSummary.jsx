@@ -103,8 +103,8 @@ const PortSummary = ({
                         flexWrap: 'wrap',
                         justifyContent: 'center',
                         gap: '8px',
-                        fontSize: '14px',
-                        color: '#6e6e73'
+                        fontSize: '16px',
+                        color: '#000'
                     }}>
                         <span style={{
                             padding: '2px 6px',

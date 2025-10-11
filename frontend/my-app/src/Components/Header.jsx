@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Apple from '../assets/apple.svg'
 import SearchIcon from '../assets/search.svg'
 import BagIcon from '../assets/bag.svg'
@@ -9,11 +9,15 @@ import NavItem from './NavItem'
 // import classNames from 'classnames'
 
 function Header() {
+  const location = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [bagOpen, setBagOpen] = useState(false)
   const [isTop, setIsTop] = useState(true)
   const [subMenuOpen, setSubMenuOpen] = useState(false) // Track sub-menu open
+  
+  // Check if we're on the home page
+  const isHomePage = location.pathname === '/'
 
   // Set your header heights here (adjust if your header is taller/shorter)
   const mobileHeaderHeight = 56 // px
@@ -46,7 +50,7 @@ function Header() {
       )}
 
       <header
-        className={`bg-stone-900 text-white flex justify-center relative z-50 transition-opacity duration-300 sticky top-0 ${isTop ? 'opacity-100' : 'opacity-100'}`}
+        className={`${isHomePage ? 'bg-stone-900 text-white sticky top-0' : 'bg-white text-black'} flex justify-center relative z-50 transition-all duration-300 ${isTop ? 'opacity-100' : 'opacity-100'}`}
       >
         <nav className="w-full mx-auto text-xs relative flex flex-col items-center px-2 mx-auto max-w-[1024px]">
           {/* Mobile header */}
@@ -56,7 +60,7 @@ function Header() {
                 src={Apple}
                 alt="Apple Logo"
                 className="w-8 h-8"
-                style={{ filter: 'invert(1)' }}
+                style={{ filter: isHomePage ? 'invert(1)' : 'invert(0)' }}
               />
             </Link>
             <div className="flex items-center">
@@ -69,7 +73,7 @@ function Header() {
                   src={SearchIcon}
                   alt="Search"
                   className="w-8 h-8"
-                  style={{ filter: 'invert(1)' }}
+                  style={{ filter: isHomePage ? 'invert(1)' : 'invert(0)' }}
                 />
               </button>
               <Link to="#" onClick={() => {
@@ -81,12 +85,12 @@ function Header() {
                   src={BagIcon}
                   alt="Bag"
                   className="w-8 h-8"
-                  style={{ filter: 'invert(1)' }}
+                  style={{ filter: isHomePage ? 'invert(1)' : 'invert(0)' }}
                 />
               </Link>
               <button
               style={{ zIndex: 1000}}
-                className="text-white focus:outline-none w-12 h-12"
+                className={`${isHomePage ? 'text-white' : 'text-black'} focus:outline-none w-12 h-12`}
                 onClick={() => setMenuOpen(!menuOpen)}
                 aria-label="Toggle menu"
               >
@@ -116,8 +120,8 @@ function Header() {
             </div>
           </div>
           {/* Desktop menu */}
-          <ul className="desktop-nav hidden lg:flex justify-between items-center w-full text-gray-300" style={{ minHeight: '44px' }}>
-            <NavItem to="/" icon={Apple} label="" className="invert-[1]"/>
+          <ul className={`desktop-nav hidden lg:flex justify-between items-center w-full ${isHomePage ? 'text-gray-300' : 'text-gray-600'}`} style={{ minHeight: '44px' }}>
+            <NavItem to="/" icon={Apple} label="" className={isHomePage ? "invert-[1]" : "invert-0"}/>
             <NavItem to="/store" label="Cửa Hàng" onSubMenu={handleSubMenu} />
             <NavItem to="/mac" label="Mac" onSubMenu={handleSubMenu}>
               <div className={`submenu-content transition-all duration-300 ease-in-out ${subMenuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95'} pointer-events-auto`}
@@ -224,12 +228,12 @@ function Header() {
             <NavItem to="/services" label="Giải Trí" />
             <NavItem to="/accessories" label="Phụ Kiện" />
             <NavItem to="/support" label="Hỗ Trợ" />
-            <NavItem to="/" icon={SearchIcon} label="" className="invert-[1]"/>
-            <NavItem to="/" icon={BagIcon} label="" className="invert-[1]"/>
+            <NavItem to="/" icon={SearchIcon} label="" className={isHomePage ? "invert-[1]" : "invert-0"}/>
+            <NavItem to="/" icon={BagIcon} label="" className={isHomePage ? "invert-[1]" : "invert-0"}/>
           </ul>
           {/* Mobile menu overlay */}
           {menuOpen && (
-            <ul className="flex flex-col lg:hidden bg-stone-800 text-white absolute left-0 w-full z-50 shadow-lg animate-fade-in text-2xl pb-24">
+            <ul className={`flex flex-col lg:hidden ${isHomePage ? 'bg-stone-800 text-white' : 'bg-gray-100 text-black'} absolute left-0 w-full z-50 shadow-lg animate-fade-in text-2xl pb-24`}>
               <li className="py-3 pl-12 font-bold"><Link to="/store" onClick={() => setMenuOpen(false)}>Cửa Hàng</Link></li>
               <li className="py-3 pl-12 font-bold"><Link to="/mac" onClick={() => setMenuOpen(false)}>Mac</Link></li>
               <li className="py-3 pl-12 font-bold"><Link to="/ipad" onClick={() => setMenuOpen(false)}>iPad</Link></li>
